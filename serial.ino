@@ -1,7 +1,3 @@
-
-
-#include<Servo.h>
-int servoPin = 3; 
 Servo Servo1; 
 void setup() {
   Servo1.attach(servoPin); 
@@ -10,20 +6,20 @@ void setup() {
 }
 
 
-void loop() {
-  if (Serial.available() > 0)
-  {
-    int x_mid;
-    if (Serial.read() == 'X')
+void loop(){
+  
+    int x;
+    if (Serial.read() == 'C')
     {
-      x_mid = Serial.parseInt();  // read center x-coordinate
-      Servo1.write(x_mid); 
+      x = Serial.parseInt();  // read center x-coordinate
+      Servo1.write(x); 
     }
    
 
     // used for testing
    
-    //Serial.println(x_mid);
+    Serial.println(x);
   
-  }
+  
 }
+
